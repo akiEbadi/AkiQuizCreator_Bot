@@ -1,4 +1,3 @@
-TOKEN = "7251905141:AAGmVxtoSjblnzlZczzVwZmJRf4vjUx1ZMM"
 import logging
 from telegram import Update, Poll, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
@@ -7,6 +6,11 @@ from telegram.ext import (
 )
 
 import re
+import os
+
+TOKEN = os.getenv("TOKEN")
+if not TOKEN:
+    raise ValueError("TOKEN is not set! Please check your Railway Environment Variables.")
 
 # لاگ‌گذاری
 logging.basicConfig(
